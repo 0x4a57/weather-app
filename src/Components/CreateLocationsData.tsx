@@ -8,7 +8,7 @@ interface Props {
   value: string
 }
 
-export interface locationData {
+export interface IlocationData {
         name: string,
         country: string,
         region: string,
@@ -40,7 +40,7 @@ export interface locationData {
 
 function Output(value: Props) {
 
-    const [locations, setLocation] = useState({
+    const [location, setLocation] = useState({
         name: '',
         country: '',
         region: '',
@@ -76,7 +76,7 @@ function Output(value: Props) {
         setIsLoading(true);
         if (value.value.length >= 3) {
             setLocation({
-                ...locations,
+                ...location,
                 name: value.value
             });
             fetch('https://api.weatherapi.com/v1/current.json?key=e377c29f8c5644a5be7124808240209&q=' + value.value + '&aqi=no')
@@ -87,7 +87,7 @@ function Output(value: Props) {
                 .then((data) => {
                     setIsLoading(false);
                     setLocation({
-                        ...locations,
+                        ...location,
                         name: data.location.name,
                         country: data.location.country,
                         region: data.location.region,
@@ -131,7 +131,7 @@ function Output(value: Props) {
         <div>
             
             <div> 
-                <WeatherCard isLoading={loading} locationtest={locations} />
+                <WeatherCard isLoading={loading} locationData={location} />
             </div> 
         </div>
     );

@@ -1,11 +1,11 @@
 
-import { locationData } from '../Components/CreateLocationsData';
+import { IlocationData } from '../Components/CreateLocationsData';
 
 interface IProps {
-    locationtest: locationData
+    locationData: IlocationData
     isLoading: boolean
  }
-function WeatherCard({ locationtest, isLoading }: IProps) {
+function WeatherCard({ locationData, isLoading }: IProps) {
     return (
         <>
             <div className="card text-center">
@@ -22,10 +22,10 @@ function WeatherCard({ locationtest, isLoading }: IProps) {
                     : 
                     <>
                         <div className="card-body">
-                            <h5 className="card-title">Location: {locationtest.name}</h5>
-                            <p className="card-text">Country: {locationtest.country}, Region: {locationtest.region}</p>
-                            <p className="card-text">Cloud: {locationtest.cloud}, Humidity: {locationtest.humidity}</p>
-                            <p className="card-text">Feels Like: {locationtest.feelslike_c}, UV: {locationtest.uv}</p>
+                            <h5 className="card-title">Location: {locationData.name}</h5>
+                            <p className="card-text">Country: {locationData.country}, Region: {locationData.region}</p>
+                            <p className="card-text">Cloud: {locationData.cloud}, Humidity: {locationData.humidity}</p>
+                            <p className="card-text">Feels Like: {locationData.feelslike_c}, UV: {locationData.uv}</p>
                         </div>
                         <div className="card-footer text-body-secondary">
                             Updated {locationtest.last_updated}
