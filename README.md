@@ -1,6 +1,6 @@
 # React + TypeScript + Vite
 
-Make an account at https://www.weatherapi.com/my/ to use the API
+Make an account at https://www.weatherapi.com/ to use the API
 
 Add your api key inside CreateLocationsData.tsx
 
