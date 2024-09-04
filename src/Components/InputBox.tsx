@@ -15,7 +15,8 @@ function App() {
             </div>
 
          
-            <LocationsData value={value} />
+            <LocationsData userInput={value} />
+          
         </>
     );
 }

@@ -1,16 +1,17 @@
 
-import { IlocationData } from '../Components/CreateLocationsData';
+import { LocationData } from './CreateLocationsData';
 
-interface IProps {
-    locationData: IlocationData
+type IProps = {
+    userLocation: LocationData,
     isLoading: boolean
  }
-function WeatherCard({ locationData, isLoading }: IProps) {
+function WeatherCard({ userLocation, isLoading }: IProps) {
     return (
         <>
+        <div className="col w-100">
             <div className="card text-center">
                 <div className="card-header">
-                    <strong>Weather</strong>
+                    <h1><strong>Weather</strong></h1>
                 </div>
 
                 { isLoading ? 
@@ -22,16 +23,17 @@ function WeatherCard({ locationData, isLoading }: IProps) {
                     : 
                     <>
                         <div className="card-body">
-                            <h5 className="card-title">Location: {locationData.name}</h5>
-                            <p className="card-text">Country: {locationData.country}, Region: {locationData.region}</p>
-                            <p className="card-text">Cloud: {locationData.cloud}, Humidity: {locationData.humidity}</p>
-                            <p className="card-text">Feels Like: {locationData.feelslike_c}, UV: {locationData.uv}</p>
+                            <h5 className="card-title">Location: {userLocation.name}</h5>
+                            <p className="card-text">Country: {userLocation.country}, Region: {userLocation.region}</p>
+                            <p className="card-text">Cloud: {userLocation.cloud}, Humidity: {userLocation.humidity}</p>
+                            <p className="card-text">Feels Like: {userLocation.feelslike_c}, UV: {userLocation.uv}</p>
                         </div>
                         <div className="card-footer text-body-secondary">
-                            Updated {locationtest.last_updated}
+                            Updated {userLocation.last_updated}
                         </div>
                     </>
                 }
+            </div>
             </div>
             
         </>
