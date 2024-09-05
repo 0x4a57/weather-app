@@ -9,7 +9,7 @@ type IProps = {
  export function WeatherCard({ userLocation, isLoading }: IProps) {
     return (
         <>
-            <div className="d-flex justify-content-between align-items-center px-5 py-5 gradient-custom rounded min-card-height currentweather" >
+            <div className={'d-flex justify-content-between align-items-center px-5 py-5 gradient-day-' + userLocation.isDay + ' rounded min-card-height currentweather'} >
             { isLoading ? 
                     <div className="spinner-border" role="status">
                         <span className="visually-hidden">Loading...</span>
@@ -17,9 +17,9 @@ type IProps = {
                 : 
                 <>
                     <div className="col-12 col-md-6">
-                        <h2 className="text-dark display-2"><strong>{userLocation.feelslike_c}°C</strong></h2>
-                        <p className="text-dark mb-0">{userLocation.name}</p>
-                        <p className="text-dark mb-0">{userLocation.condition?.text}</p>
+                        <h2 className={'text-dark-' + userLocation.isDay + ' display-2'}><strong>{userLocation.feelslike_c}°C</strong></h2>
+                        <p className={'text-dark-' + userLocation.isDay + ' mb-0'}>{userLocation.name}</p>
+                        <p className={'text-dark-' + userLocation.isDay + ' mb-0'}>{userLocation.condition?.text}</p>
                     </div>
                     <div className="col-12 col-md-6 text-end">
                         <img src={userLocation.condition?.icon} width="120px"></img>

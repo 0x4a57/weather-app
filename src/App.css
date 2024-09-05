@@ -1,4 +1,15 @@
-.gradient-custom {
+.gradient-day-0 {
+    /* fallback for old browsers */
+    background: #ffffff;
+    
+    /* Chrome 10-25, Safari 5.1-6 */
+    background: -webkit-linear-gradient(to right, rgb(0, 0, 0), rgb(27, 1, 51));
+    
+    /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    background: linear-gradient(to right, rgba(0, 0, 0, 1), rgba(27, 1, 51, 1))
+}
+
+.gradient-day-1 {
     /* fallback for old browsers */
     background: #ffffff;
     
@@ -14,6 +25,11 @@
 }
 
 .white { color: #fff;}
+
+.text-dark-0 { color: #fff;}
+
+
+.text-dark-1 { color: #212529;}
 
 .dark-background { background: #3b3b3b; }
 

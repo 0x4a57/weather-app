@@ -18,6 +18,7 @@ export type LocationData = {
         text: string,
         icon: string,
     }
+    isDay?: string
 }
 
 export type ForecastData = {
@@ -75,7 +76,8 @@ function LocationDataComponent(props: any) {
                             feelslike_c: data.current.feelslike_c,
                             uv: data.current.uv,
                             last_updated: data.current.last_updated,
-                            condition: data.current.condition
+                            condition: data.current.condition,
+                            isDay: data.current.is_day,
                         }));
                         setForecastData(data.forecast.forecastday);   
                     })
