@@ -1,24 +1,28 @@
 
 import { useState } from 'react'
-import LocationsData from './CreateLocationsData'
+import LocationDataComponent from './LocationDataComponent'
 
 
-function App() {
-    const [value, setValue] = useState("LHR");
+export function InputBox() {
+    const [value, setValue] = useState("");
  
     return (
         <>
             <div className="input-group input-group-lg mb-3">
                 
-                <input type="text" className="form-control" placeholder="Username" aria-label="Username" aria-describedby="basic-addon1" value={value} onChange={event => setValue(event.target.value)}></input>
+                <input type="text" className="form-control rounded" placeholder="Search for a location" aria-label="location" aria-describedby="basic-addon1" value={value} onChange={event => setValue(event.target.value)}></input>
                     
             </div>
+            
 
-         
-            <LocationsData userInput={value} />
-          
+            { value.length <= 2 || value == "" ? 
+                <></>
+            : 
+                <LocationDataComponent userInput={value} />
+            }
+
+            
         </>
     );
 }
 
-export default App
