@@ -52,8 +52,6 @@ function LocationDataComponent(props: any) {
     function loadData() {
         setIsLoading(true);
         if (props.userInput.length >= 3) {
-            setTimeout(function() {
-
                 setLocation((userLocation) => ({
                     ...userLocation, 
                     name: props.userInput 
@@ -85,12 +83,21 @@ function LocationDataComponent(props: any) {
                     .catch((error) => {
                         console.log(error);
                     });
-            }, 300)
+           
         }
         
     }
 
-    useEffect(loadData, [props.userInput]);
+    useEffect(() => {
+        const loadDataHandler = setTimeout(() => {
+            loadData()
+        }, 300);
+    
+        return () => {
+          clearTimeout(loadDataHandler);
+        };
+      }, [props.userInput]);
+
 
     return (
         <>
@@ -100,7 +107,6 @@ function LocationDataComponent(props: any) {
             <>
             <div className="d-flex justify-content-around text-center align-items-center px-5 py-5 dark-background mt-3 forecast">
                 {forecastData.map((data, index) => {
-                    console.log(data);
                     return  <ForecastCard isLoading={loading} key={index} userLocationForecast={data} />
                 }) }
             </div>
